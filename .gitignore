@@ -1,0 +1,6 @@
+#tests.php
+#TODO.md
+#tests/
+#test/
+.php-cs-fixer.cache
+.null-ls*
