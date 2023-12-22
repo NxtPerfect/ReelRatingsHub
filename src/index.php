@@ -10,13 +10,15 @@
 
 <body>
   <nav>
-    <a href="index.php" style="text-decoration: none; color: black;"><h1>Reel Ratings Hub</h1></a>
+    <a href="index.php" style="text-decoration: none; color: black;">
+      <h1>Reel Ratings Hub</h1>
+    </a>
     <form method="GET" action="index.php">
       <div class="search">
-        <input type="text" name="title">
-          <div type="submit" name="search" value="search" class="search_icon" style="cursor: pointer;">
-            <i class="fa fa-search"></i>
-          </div>
+        <input type="text" name="title" placeholder="Search movie name">
+        <div type="submit" name="search" value="search" class="search_icon" style="cursor: pointer;">
+          <i class="fa fa-search"></i>
+        </div>
       </div>
     </form>
     <div class="login">
@@ -29,20 +31,22 @@
   <main>
     <div class="filter">
       <form method="GET" action="index.php">
-        Filtry
-        <input type="checkbox" name="filter" value="action" style="cursor: pointer;">Akcji</button>
-        <input type="checkbox" name="filter" value="adventure" style="cursor: pointer;">Przygodowe</button>
-        <button type="submit" style="cursor: pointer;">Filtruj</button>
-        <button name="reset" value="reset" style="cursor: pointer;">Wyczyść filtry</button>
+        <h3>Filtry</h3>
+        <button class="filter_element_button" id="action" type="submit" name="filter" value="action" style="cursor: pointer;">Akcji</button>
+        <button class="filter_element_button" id="adventure" type="submit" name="filter" value="adventure" style="cursor: pointer;">Przygodowe</button>
+        <button class="filter_element_reset" name="reset" value="reset" style="cursor: pointer;">Wyczyść filtry</button>
+      </form>
     </div>
     <div class="movies">
       <?php
-      echo "<img src=assets/test.jpg/>";
-      echo "<img src=assets/test.jpg/>";
-      echo "<img src=assets/test.jpg/>";
-      echo "<img src=assets/test.jpg/>";
-      echo "<img src=assets/test.jpg/>";
-      echo "<img src=assets/test.jpg/>";
+      $url = 'assets/test.jpg';
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
+      echo "<div class=image style='background-image: url($url);'><div class=image_info><h3>Top Gun</h3><p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p><form method=GET action=movie.php><button type=submit name=title value=review style='cursor: pointer;'>Review</button></form></div></div>";
       ?>
     </div>
   </main>
