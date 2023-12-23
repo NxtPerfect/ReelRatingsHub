@@ -13,7 +13,7 @@ body {
   background-color: var(--background);
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   color: var(--text);
 }
@@ -175,14 +175,9 @@ main {
   .login_form > button:hover, .login_form > button:focus {
     scale: 1.05;
     transition: scale 0.1s linear, background-color 0.1s linear;
+    transform-origin: center;
+  }
 }
-
-/* .filter_element { */
-/*   display: flex; */
-/*   flex-direction: row; */
-/*   justify-content: space-between; */
-/*   align-content: center; */
-/* } */
 
 .movies {
   display: grid;
@@ -235,6 +230,16 @@ main {
   margin-top: 2rem;
 }
 
+.movies > .image > .image_info > form > .review_button {
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--accent);
+  padding: .25rem .75rem;
+  border-radius: var(--radius);
+  border: 0;
+}
+
 .movies > .image > .image_info > h3 {
   text-shadow: black 0 0 .5rem;
   font-size: 1.7rem;
@@ -261,4 +266,71 @@ main {
   @keyframes fade-in {
     to {scale: 1; opacity: 1;}
   }
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  transform-origin: center;
+}
+
+.signin > * {
+  margin: .5rem 0;
+  font-size: 1.0rem;
+  border-radius: var(--radius);
+}
+
+.signin > input {
+  border: 0;
+  padding: .25rem var(--radius);
+  max-width: 25rem;
+  min-width: 15rem;
+}
+
+.signin > button {
+  background-color: var(--accent);
+  border-radius: var(--radius);
+  padding: .5rem 1.25rem;
+  font-size: 1rem;
+  border: 0;
+  width: fit-content;
+  cursor: pointer;
+  margin: 2rem 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .signin > button:hover, .signin > button:focus {
+    scale: 1.1;
+    background-color: var(--secondary);
+    color: var(--text);
+    transition: scale 0.1s linear, background-color 0.1s linear, color 0.1s linear;
+    transform-origin: center;
+  }
+}
+
+.movie_review {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.movie_review > .image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  aspect-ratio: .7;
+  overflow: hidden;
+}
+
+.ratings {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-content: center;
+  margin: .5rem;
 }
