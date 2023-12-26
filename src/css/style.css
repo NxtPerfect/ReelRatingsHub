@@ -6,11 +6,13 @@
   --accent: #e823c3;
   --radius: 1rem;
 }
+
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background-color: var(--background);
+  margin: 0;
 }
 
 h1, h2 {
@@ -71,6 +73,13 @@ form {
   background-color: var(--accent);
 }
 
+.search_icon:hover,
+.search_icon:focus {
+  background-color: var(--accent);
+  color: var(--primary);
+  transition: background-color 100ms linear, color 100ms linear;
+}
+
 .search_icon > i {
   justify-self: center;
   align-self: center;
@@ -100,7 +109,6 @@ form {
 
 main {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-content: center;
   margin: 3rem 5rem;
@@ -240,6 +248,14 @@ main {
   border: 0;
 }
 
+.movies > .image > .image_info > form > .review_button:hover,
+.movies > .image > .image_info > form > .review_button:focus {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background-color 100ms linear, color 100ms linear, scale 100ms linear;
+  scale: 1.05;
+}
+
 .movies > .image > .image_info > h3 {
   text-shadow: black 0 0 .5rem;
   font-size: 1.7rem;
@@ -303,7 +319,7 @@ main {
 
 @media (prefers-reduced-motion: no-preference) {
   .signin > button:hover, .signin > button:focus {
-    scale: 1.1;
+    scale: 1.05;
     background-color: var(--secondary);
     color: var(--text);
     transition: scale 0.1s linear, background-color 0.1s linear, color 0.1s linear;
@@ -327,10 +343,106 @@ main {
   overflow: hidden;
 }
 
-.ratings {
+.movie_review > .ratings {
   display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+  flex-flow: column;
+  justify-content: center;
   align-content: center;
   margin: .5rem;
+}
+
+.movie_review > .ratings > .score {
+  display: flex;
+  flex-direction: row;
+}
+
+.movie_review > .ratings > .score > span {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.movie_review > .ratings > .scoring {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.movie_review > .ratings > .scoring > input{
+  width: 10rem;
+  aspect-ratio: 5;
+  font-size: 1.25rem;
+}
+
+.movie_review > .ratings > .scoring > button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  cursor: pointer;
+  margin: 1rem;
+  padding: .25rem .75rem;
+  border: 0;
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  width: fit-content;
+}
+
+.movie_review > .ratings > .scoring > button:hover, 
+.movie_review > .ratings > .scoring > button:focus {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: color 100ms linear, background-color 100ms linear, scale 100ms linear;
+  scale: 1.05;
+}
+
+.comments {
+  grid-column: span 2;
+}
+
+.comments > .comment_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.comments > .comment_form > textarea {
+  width: 50%;
+  aspect-ratio: 3;
+  resize: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.comments > .comment_form > button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: 0;
+  margin: 1rem;
+  padding: .25rem .75rem;
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.comments > .comment_form > button:hover,
+.comments > .comment_form > button:focus {
+  color: var(--primary);
+  background-color: var(--secondary);
+  transition: color 100ms linear, background-color 100ms linear, scale 100ms linear;
+  scale: 1.1;
+}
+
+.comments > .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: var(--secondary);
+  margin: 1rem 0;
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+.comments > .comment > p, .comments > .comment > span > h4 {
+  margin: 0;
 }

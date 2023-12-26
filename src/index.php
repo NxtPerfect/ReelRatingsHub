@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 
 <body>
@@ -30,8 +31,13 @@
     <div class="filter">
       <form method="GET" action="index.php">
         <h3>Filtry</h3>
-        <button class="filter_element_button" id="action" type="submit" name="filter" value="action" style="cursor: pointer;">Akcji</button>
-        <button class="filter_element_button" id="adventure" type="submit" name="filter" value="adventure" style="cursor: pointer;">Przygodowe</button>
+        <?php
+        // read filters from database
+        $filters = array('action' => "Akcji", 'adventure' => "Przygodowe");
+        foreach ($filters as $key => $value) {
+          echo "<button class='filter_element_button' id=action type=submit name=filter value=$key style='cursor: pointer;'>$value</button>";
+        }
+        ?>
         <button class="filter_element_reset" name="reset" value="reset" style="cursor: pointer;">Wyczyść filtry</button>
       </form>
     </div>
