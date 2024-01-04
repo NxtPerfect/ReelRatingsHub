@@ -15,7 +15,8 @@ body {
   margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   color: var(--text);
 }
@@ -52,7 +53,7 @@ form {
   width: 80%;
 }
 
-.search > input {
+.search>input {
   border-radius: var(--radius) 0 0 var(--radius);
   width: 100%;
   padding-left: 1rem;
@@ -80,20 +81,20 @@ form {
   transition: background-color 100ms linear, color 100ms linear;
 }
 
-.search_icon > i {
+.search_icon>i {
   justify-self: center;
   align-self: center;
   color: var(--background);
 }
 
 .login_form {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
 }
 
-.login_form > button {
+.login_form>button {
   margin: 0 0.75rem;
   padding: .5rem 1rem;
   color: var(--secondary);
@@ -102,7 +103,8 @@ form {
   border-radius: var(--radius);
 }
 
-.login_form > button:hover, .login_form > button:focus {
+.login_form>button:hover,
+.login_form>button:focus {
   background-color: var(--accent);
   /* color: var(--primary); */
 }
@@ -124,7 +126,7 @@ main {
   background-color: var(--secondary);
 }
 
-.filter > form {
+.filter>form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,16 +137,16 @@ main {
   padding: 0 .5rem;
 }
 
-.filter > form > * {
-    color: var(--text);
+.filter>form>* {
+  color: var(--text);
 }
 
-.filter > form > h3 {
+.filter>form>h3 {
   font-size: 1.2rem;
   color: var(--text);
 }
 
-.filter > form > .filter_element_button {
+.filter>form>.filter_element_button {
   color: var(--text);
   background-color: var(--secondary);
   font-size: 1rem;
@@ -155,11 +157,12 @@ main {
   width: fit-content;
 }
 
-.filter > form > .filter_element_button:hover, .filter > form > .filter_element_button:focus {
+.filter>form>.filter_element_button:hover,
+.filter>form>.filter_element_button:focus {
   border-color: var(--accent);
 }
 
-.filter > form > .filter_element_reset {
+.filter>form>.filter_element_reset {
   color: var(--text);
   background-color: var(--secondary);
   font-size: 1rem;
@@ -170,17 +173,22 @@ main {
   border-color: var(--accent);
 }
 
-.filter > form > .filter_element_reset:hover, .filter > form > .filter_element_reset:focus {
+.filter>form>.filter_element_reset:hover,
+.filter>form>.filter_element_reset:focus {
   border-color: var(--primary);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .filter > form > .filter_element_reset:hover, .filter > form > .filter_element_reset:focus,
-  .filter > form > .filter_element_button:hover, .filter > form > .filter_element_button:focus
-  {
+
+  .filter>form>.filter_element_reset:hover,
+  .filter>form>.filter_element_reset:focus,
+  .filter>form>.filter_element_button:hover,
+  .filter>form>.filter_element_button:focus {
     transition: border-color 0.1s linear;
   }
-  .login_form > button:hover, .login_form > button:focus {
+
+  .login_form>button:hover,
+  .login_form>button:focus {
     scale: 1.05;
     transition: scale 0.1s linear, background-color 0.1s linear;
     transform-origin: center;
@@ -195,7 +203,7 @@ main {
   width: 100%;
 }
 
-.movies > .image {
+.movies>.image {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -206,7 +214,7 @@ main {
   overflow: hidden;
 }
 
-.movies > .image > .image_info {
+.movies>.image>.image_info {
   position: absolute;
   bottom: -55%;
   display: flex;
@@ -219,26 +227,34 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .movies > .image > .image_info {
+  .movies>.image>.image_info {
     bottom: -55%;
     transition: bottom 0.3s ease-in-out;
   }
-  .movies > .image:hover > .image_info,
-  .movies > .image:focus > .image_info {
+
+  .movies>.image:hover>.image_info,
+  .movies>.image:focus>.image_info {
     bottom: 0;
   }
+
   @keyframes slide-in {
-    from {bottom: -10rem;}
-    to {scale: 1; bottom: 0;}
+    from {
+      bottom: -10rem;
+    }
+
+    to {
+      scale: 1;
+      bottom: 0;
+    }
   }
 }
 
-.movies > .image > .image_info > form {
+.movies>.image>.image_info>form {
   margin: 1rem;
   margin-top: 2rem;
 }
 
-.movies > .image > .image_info > form > .review_button {
+.movies>.image>.image_info>form>.review_button {
   cursor: pointer;
   font-size: 1rem;
   color: var(--text);
@@ -248,15 +264,15 @@ main {
   border: 0;
 }
 
-.movies > .image > .image_info > form > .review_button:hover,
-.movies > .image > .image_info > form > .review_button:focus {
+.movies>.image>.image_info>form>.review_button:hover,
+.movies>.image>.image_info>form>.review_button:focus {
   background-color: var(--secondary);
   color: var(--primary);
   transition: background-color 100ms linear, color 100ms linear, scale 100ms linear;
   scale: 1.05;
 }
 
-.movies > .image > .image_info > h3 {
+.movies>.image>.image_info>h3 {
   text-shadow: black 0 0 .5rem;
   font-size: 1.7rem;
   color: white;
@@ -264,7 +280,8 @@ main {
   margin: .25rem;
 }
 
-.movies > .image > .image_info > .image_buttons, .movies > .image > .image_info > p{
+.movies>.image>.image_info>.image_buttons,
+.movies>.image>.image_info>p {
   color: white;
   position: relative;
   margin: .25rem;
@@ -272,15 +289,19 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .movies > img {
-    scale: .8; opacity: 0;
+  .movies>img {
+    scale: .8;
+    opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
     animation-range: entry;
   }
 
   @keyframes fade-in {
-    to {scale: 1; opacity: 1;}
+    to {
+      scale: 1;
+      opacity: 1;
+    }
   }
 }
 
@@ -293,20 +314,20 @@ main {
   transform-origin: center;
 }
 
-.signin > * {
+.signin>* {
   margin: .5rem 0;
   font-size: 1.0rem;
   border-radius: var(--radius);
 }
 
-.signin > input {
+.signin>input {
   border: 0;
   padding: .25rem var(--radius);
   max-width: 25rem;
   min-width: 15rem;
 }
 
-.signin > button {
+.signin>button {
   background-color: var(--accent);
   border-radius: var(--radius);
   padding: .5rem 1.25rem;
@@ -318,7 +339,9 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .signin > button:hover, .signin > button:focus {
+
+  .signin>button:hover,
+  .signin>button:focus {
     scale: 1.05;
     background-color: var(--secondary);
     color: var(--text);
@@ -332,7 +355,7 @@ main {
   grid-template: 1fr 1fr / 1fr 1fr;
 }
 
-.movie_review > .image {
+.movie_review>.image {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -341,27 +364,28 @@ main {
   background-position: center;
   aspect-ratio: .7;
   overflow: hidden;
+  min-width: 30rem;
 }
 
-.movie_review > .ratings {
+.movie_review>.ratings {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-content: center;
-  margin: .5rem;
+  margin: 1.5rem;
 }
 
-.movie_review > .ratings > .score {
+.movie_review>.ratings>.score {
   display: flex;
   flex-direction: row;
 }
 
-.movie_review > .ratings > .score > span {
+.movie_review>.ratings>.score>span {
   margin: 1rem;
   font-size: 1.5rem;
 }
 
-.movie_review > .ratings > .scoring {
+.movie_review>.ratings>.scoring {
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -369,13 +393,13 @@ main {
   font-size: 1.25rem;
 }
 
-.movie_review > .ratings > .scoring > input{
+.movie_review>.ratings>.scoring>input {
   width: 10rem;
   aspect-ratio: 5;
   font-size: 1.25rem;
 }
 
-.movie_review > .ratings > .scoring > button {
+.movie_review>.ratings>.scoring>button {
   background-color: var(--primary);
   color: var(--secondary);
   cursor: pointer;
@@ -387,8 +411,8 @@ main {
   width: fit-content;
 }
 
-.movie_review > .ratings > .scoring > button:hover, 
-.movie_review > .ratings > .scoring > button:focus {
+.movie_review>.ratings>.scoring>button:hover,
+.movie_review>.ratings>.scoring>button:focus {
   background-color: var(--secondary);
   color: var(--primary);
   transition: color 100ms linear, background-color 100ms linear, scale 100ms linear;
@@ -399,7 +423,7 @@ main {
   grid-column: span 2;
 }
 
-.comments > .comment_form {
+.comments>.comment_form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -407,14 +431,14 @@ main {
   width: 100%;
 }
 
-.comments > .comment_form > textarea {
+.comments>.comment_form>textarea {
   width: 50%;
   aspect-ratio: 3;
   resize: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.comments > .comment_form > button {
+.comments>.comment_form>button {
   background-color: var(--primary);
   color: var(--secondary);
   border: 0;
@@ -425,15 +449,15 @@ main {
   cursor: pointer;
 }
 
-.comments > .comment_form > button:hover,
-.comments > .comment_form > button:focus {
+.comments>.comment_form>button:hover,
+.comments>.comment_form>button:focus {
   color: var(--primary);
   background-color: var(--secondary);
   transition: color 100ms linear, background-color 100ms linear, scale 100ms linear;
   scale: 1.1;
 }
 
-.comments > .comment {
+.comments>.comment {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -443,6 +467,7 @@ main {
   border-radius: var(--radius);
 }
 
-.comments > .comment > p, .comments > .comment > span > h4 {
+.comments>.comment>p,
+.comments>.comment>span>h4 {
   margin: 0;
 }

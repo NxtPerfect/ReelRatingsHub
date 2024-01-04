@@ -13,27 +13,27 @@
     - Jeśli są w bazie danych, zaloguj, inaczej max 5 prób, potem poczekaj 5 minut
 3. Użytkownik jako gość
     - nazwa użytkownika to generowane id lub który gość z kolei
-    - może jedynie komentować pod filmami
-    - limit słów w komentarzu to 250
+    - [/] może jedynie komentować pod filmami
+    - [x] limit słów w komentarzu to 250
 4. Bazy danych
-    - po napisaniu komentarza/recenzji, zapisz do bazy danych
-    - wyświetlaj recenzje/komentarze z bazy danych
-    - wyświetlaj filmy/gatunki z bazy danych
+    - [x] po napisaniu komentarza/recenzji, zapisz do bazy danych
+    - [x] wyświetlaj recenzje/komentarze z bazy danych
+    - [x] wyświetlaj filmy/gatunki z bazy danych
 5. Baza danych - filmy
-    - unikalne id
-    - tytuł
-    - gatunki
-    - ile trwa w minutach
+    - [x] unikalne id
+    - [x] tytuł
+    - [x] gatunki
+    <!-- - ile trwa w minutach -->
 6. Baza danych - komentarze
-    - unikalne id
-    - nazwa użytkownika
-    - treść komentarza
-    - data dodania
+    - [x] unikalne id
+    - [x] nazwa użytkownika
+    - [x] treść komentarza
+    - [ ] data dodania
 7. Baza danych - użytkownicy
-    - unikalne id
-    - email
-    - nazwa
-    - hasło
+    - [x] unikalne id
+    - [x] email
+    - [x] nazwa
+    - [x] hasło
 8. Baza danych - gość
     - unikalne id
     - nazwa
