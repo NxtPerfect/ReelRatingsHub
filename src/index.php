@@ -10,6 +10,15 @@ if (!$conn) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+if (isset($_GET['search'])) {
+  $_movie_name = $_GET['search'];
+  $query = "SELECT * FROM movies WHERE name LIKE '%$_movie_name%'";
+  echo $query;
+  $res = mysqli_query($conn, $query);
+  $movies = mysqli_fetch_all($res, MYSQLI_ASSOC);
+  mysqli_free_result($res);
+}
+
 if (isset($_POST['logout'])) {
   session_unset();
   unset($_SESSION['username']);
@@ -31,17 +40,18 @@ if (isset($_POST['logout'])) {
 </head>
 
 <body>
-  <?php if (isset($_SESSION['username'])) {
-    echo "<nav>
-    <a href=index.php style=text-decoration: none; color: black;>
+  <nav>
+    <a href=index.php style='text-decoration: none;' color: black;>
       <h1>Reel Ratings Hub</h1>
     </a>
-    <form class=search method=GET action=index.php>
-      <input type=text name=title placeholder=Search movie name>
-      <div type=submit name=search value=search class=search_icon style=cursor: pointer;>
+    <form class=search method=GET action=#>
+      <input name=search type=text name=title placeholder='Search movie name'>
+      <button type=submit class=search_icon style='cursor: pointer;'>
         <i class='fa fa-search'></i>
-      </div>
+      </button>
     </form>
+    <?php if (isset($_SESSION['username'])) {
+      echo "
     <div class=login>
 <svg xmlns='http://www.w3.org/2000/svg' height=16 width=14 viewBox='0 0 448 512'><path d='M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'/></svg>
       $_SESSION[username]
@@ -49,35 +59,23 @@ if (isset($_POST['logout'])) {
         <button type=submit name=logout >Logout</input>
       </form>
     </div>
-    </nav>";
-  } else {
-    echo "
-  <nav>
-    <a href=index.php style=text-decoration: none; color: black;>
-      <h1>Reel Ratings Hub</h1>
-    </a>
-    <form class=search method=GET action=index.php>
-      <input type=text name=title placeholder=Search movie name>
-      <div type=submit name=search value=search class=search_icon style=cursor: pointer;>
-        <i class='fa fa-search'></i>
-      </div>
-    </form>
+    ";
+    } else {
+      echo "
     <div class=login>
       <form class=login_form method=POST action=register.php>
         <button type=submit name=login value=login style=cursor: pointer;>Zaloguj</button>
         <button type=submit name=register value=register style=cursor: pointer;>Zarejestruj</button>
       </form>
-    </div>
+    </div>";
+    } ?>
   </nav>
-";
-  }
-  ?>
   <main>
     <div class="filter">
       <form method="GET" action="index.php">
         <h3>Filtry</h3>
         <?php
-        $query = 'SELECT DISTINCT genres FROM movies ORDER BY genres';
+        $query = 'SELECT * FROM genres ORDER BY genre';
         $res = mysqli_query($conn, $query);
         $filters = mysqli_fetch_all($res, MYSQLI_ASSOC);
         mysqli_free_result($res);
@@ -97,7 +95,9 @@ if (isset($_POST['logout'])) {
         $query = "SELECT name, genres, description FROM movies WHERE genres LIKE '$active_filter' ORDER BY name";
       }
       $res = mysqli_query($conn, $query);
-      $movies = mysqli_fetch_all($res, MYSQLI_ASSOC);
+      if (!isset($_movie_name)) {
+        $movies = mysqli_fetch_all($res, MYSQLI_ASSOC);
+      }
       mysqli_free_result($res);
       foreach ($movies as $val) { ?>
         <div class='image' style='background-image: url("<?php echo "./assets/$val[name].jpg" ?>");'>
