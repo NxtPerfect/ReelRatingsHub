@@ -5,7 +5,7 @@ php website for rating and commenting movies
 
 - Signup/Login as user
 - Use as a guest
-- Filter by multiple genres
+- Filter by genre
 - Search by movie name
 - Rate movies
 - Read/Write comments
