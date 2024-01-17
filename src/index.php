@@ -88,9 +88,9 @@ if (isset($_POST['logout'])) { // Jeśli chcemy się wylogować, usunie parametr
     </div>
     <div class="movies">
       <?php // Przefiltruj filmy po wybranym gatunku, jeśli został ustawiony
-      $active_filter = $_GET['filter'];
       $query = 'SELECT name, genres, description FROM movies ORDER BY name';
-      if (isset($active_filter)) {
+      if (isset($_GET['filter'])) {
+        $active_filter = $_GET['filter'];
         $query = "SELECT name, genres, description FROM movies WHERE genres LIKE '$active_filter' ORDER BY name";
       }
       $res = mysqli_query($conn, $query);

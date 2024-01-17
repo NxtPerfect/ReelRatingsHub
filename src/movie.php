@@ -120,37 +120,37 @@ if (isset($_POST['content'])) {
     <main style="flex-direction: column;">
         <?php // zbierz wszystkie oceny
         $query = "SELECT * FROM reviews WHERE movie_id LIKE '$movie[id]'";
-$res = mysqli_query($conn, $query);
-$reviews = mysqli_fetch_all($res, MYSQLI_ASSOC);
-mysqli_free_result($res);
-$story = 0;
-$characters = 0;
-$originality = 0;
-$emotional = 0;
-for ($i = 0; $i < count($reviews); $i++) { // zlicz sumy ocen dla każdej kategorii
-    $story += $reviews[$i]['story'];
-    $characters += $reviews[$i]['characters'];
-    $originality += $reviews[$i]['originality'];
-    $emotional += $reviews[$i]['emotional'];
-}
-if (count($reviews) == 0) { // jeśli brak ocen to zmień na 0
-    $story = 0;
-    $characters = 0;
-    $originality = 0;
-    $emotional = 0;
-    $total_score = 0;
-} else { // jeśli są oceny, to zlicz średnią
-    $story = $story / count($reviews);
-    $chracters = $characters / count($reviews);
-    $originality = $originality / count($reviews);
-    $emotional = $emotional / count($reviews);
-    $total_score = ($story + $characters + $originality + $emotional) / 4;
-}
-$query = "SELECT * FROM comments WHERE movie_id LIKE '$movie[id]'";
-// Wybierz wszystkie komentarze z bazy danych
-$res = mysqli_query($conn, $query);
-$comments = mysqli_fetch_all($res, MYSQLI_ASSOC);
-mysqli_free_result($res); ?>
+        $res = mysqli_query($conn, $query);
+        $reviews = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        mysqli_free_result($res);
+        $story = 0;
+        $characters = 0;
+        $originality = 0;
+        $emotional = 0;
+        for ($i = 0; $i < count($reviews); $i++) { // zlicz sumy ocen dla każdej kategorii
+            $story += $reviews[$i]['story'];
+            $characters += $reviews[$i]['characters'];
+            $originality += $reviews[$i]['originality'];
+            $emotional += $reviews[$i]['emotional'];
+        }
+        if (count($reviews) == 0) { // jeśli brak ocen to zmień na 0
+            $story = 0;
+            $characters = 0;
+            $originality = 0;
+            $emotional = 0;
+            $total_score = 0;
+        } else { // jeśli są oceny, to zlicz średnią
+            $story = $story / count($reviews);
+            $chracters = $characters / count($reviews);
+            $originality = $originality / count($reviews);
+            $emotional = $emotional / count($reviews);
+            $total_score = ($story + $characters + $originality + $emotional) / 4;
+        }
+        $query = "SELECT * FROM comments WHERE movie_id LIKE '$movie[id]'";
+        // Wybierz wszystkie komentarze z bazy danych
+        $res = mysqli_query($conn, $query);
+        $comments = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        mysqli_free_result($res); ?>
         <div class='movie_review'>
             <div class='image' style='background-image: url("<?php echo "./assets/$movie[name].jpg" ?>");'></div>
             <div class='ratings'>
@@ -201,7 +201,7 @@ mysqli_free_result($res); ?>
                     } else { // w innym przypadku, pokaż że trzeba się zalogować
                         echo "<h3>Zaloguj się aby ocenić</h3>";
                     }
-?>
+                    ?>
                 </form>
             </div>
             <div class='comments'>
@@ -210,10 +210,10 @@ mysqli_free_result($res); ?>
                         <h2>Napisz swoje myśli</h2>
                     </label>
                     <?php // Jeśli nie zalogowany, pokaż pole do wpisania nazwy do komentarza
-if (!isset($_SESSION['username'])) {
-    echo "<input type='text' placeholder='Nazwa użytkownika' name='username' required></input>";
-}
-?>
+                    if (!isset($_SESSION['username'])) {
+                        echo "<input type='text' placeholder='Nazwa użytkownika' name='username' required></input>";
+                    }
+                    ?>
                     <textarea name='content' placeholder="Co lubisz/nie lubisz z tego filmu?" maxlength="500" required></textarea>
                     <button type='submit'>Prześlij</button>
                 </form>
